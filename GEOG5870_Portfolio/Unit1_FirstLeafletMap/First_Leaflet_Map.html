@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>First Leaflet Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body>
+    <div style="text-align: center; font-size: 28px; margin: 20px 0; font-weight: bold;">
+        📍 Welcome to the University of Leeds Campus Guide!
+    </div>
+    <ul>
+        <li><strong>Core Libraries:</strong> The Edward Boyle Library and the Laidlaw Library.</li>
+        <li><strong>Administrative Landmark:</strong> The iconic Parkinson Building.</li>
+        <li><strong>Student Life:</strong> Leeds University Union (LUU) and The Edge.</li>
+        <li><strong>Academic Departments:</strong> The School of Geography.</li>
+    </ul>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map is centred on <b>Edward Boyle Library</b>, and it also shows the polygonal area of the library.</p>
+    <div id="mapContainer" style="width:95vw; height:85vh; margin:8px auto; border: 2px solid #333;"></div>
+
+    <script type="text/javascript">
+        let map = L.map('mapContainer');
+        map.setView([53.8062, -1.5547], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        L.marker([53.8043, -1.5548]).addTo(map).bindPopup("<b>School of Geography</b><br>Located in the center of the Iraine Manton Building, a gathering spot for all geographers, University of Leeds");
+        L.marker([53.8080, -1.5527]).addTo(map).bindPopup("<b>Parkinson Building</b><br>A main entrance to the University of Leeds and a historic grade II listed building, University of Leeds");
+        L.marker([53.8044, -1.5533]).addTo(map).bindPopup("<b>The Edge</b><br>A fitness, sport, and wellbeing complex at Campus, University of Leeds");
+        L.marker([53.8069, -1.5564]).addTo(map).bindPopup("<b>Leeds University Union</b><br>A student-led organisation, University of Leeds");
+        L.marker([53.8070, -1.5517]).addTo(map).bindPopup("<b>Laidlaw Library</b><br>One of the main libraries at Campus, University of Leeds");
+        L.marker([53.8062, -1.5547]).addTo(map).bindPopup("<b>Edward Boyle Library</b><br>A modern and comprehensive library, University of Leeds");
+
+        let polygon = L.polygon([
+            [53.806364, -1.555047],
+            [53.806366, -1.554459],
+            [53.805790, -1.554467],
+            [53.805788, -1.555043]
+        ], {
+            color: 'blue',
+            fillColor: '#3388ff',
+            fillOpacity: 0.4
+        }).addTo(map).bindPopup("<b>Edward Boyle Library</b><br>A modern and comprehensive library at University of Leeds");
+    </script>
+</body>
+
+</html>

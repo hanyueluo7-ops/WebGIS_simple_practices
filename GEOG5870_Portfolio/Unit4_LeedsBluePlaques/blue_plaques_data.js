@@ -1,0 +1,233 @@
+const os_markers = [
+{
+'id':1,
+'title':'Burley Bar Stone',
+'location':'Inside main entrance of Leeds Building Society, The Headrow Leeds 1',
+'unveiler':'Lord Marshall of Leeds, President of Leeds Civic Trust,  former Leader of Leeds City Council',
+'date':'27 Nov 1987',
+'sponser':'Leeds & Holbeck Building Society',
+'easting':430055,
+'northing':433766,
+'caption':'This stone, now housed inside the main entrance of Leeds Building society marked the medieval boundary between the manorial borough, or town, of Leeds and Leeds Main Riding, the surrounding agricultural land. First recorded 1726.'
+},
+{
+'id':2,
+'title':'Louis Le Prince (1st Plaque)',
+'location':'British Waterways, Leeds Bridge, Lower Briggate, Leeds 1',
+'unveiler':'Mr. William Le Prince Huettle, great-grandson of Louis Le Prince',
+'date':'13 Oct 1988',
+'sponser':'British Waterways Board',
+'easting':430296,
+'northing':433148,
+'caption':'Louis Aime August Le Prince came to Leeds in 1866 where he experimented in cinematography. In 1888 he patented a one-lens camera which he filmed Leeds Bridge from the British Waterways building. These were probably the world&rsquo;s first successful moving pictures.'
+},
+{
+'id':4,
+'title':'Temple Mill ',
+'location':'Marshall Street, Leeds 11',
+'unveiler':'Mr Bruce Taylor',
+'date':'14 Feb 1989',
+'sponser':'Kay & Company Ltd',
+'easting':429559,
+'northing':432749,
+'caption':'The magnificent but highly functional flax spinning mill to your left was erected by John Marshall, founder of the Leeds flax industry.  Joseph Bonomi modelled the mill and this office building (added in 1843) on the Egytian temple at Edfu.  Erected in 1838-40.'
+},
+{
+'id':5,
+'title':'18 Park Place',
+'location':'18 Park Place, Leeds 1',
+'unveiler':'Sir Christopher Benson, Chairman, MEPC plc',
+'date':'24 Feb 1989',
+'sponser':'MEPC plc',
+'easting':429533,
+'northing':433600,
+'caption':'This house, restored to its former grandeur by MEPC plc in 1988, is situated in one of the most elegant streets of Georgian Leeds. Merchants and gentlemen were attraced here by the beautiful view of the river and neighbouring hills.'
+},
+{
+'id':6,
+'title':'The Victoria Hotel',
+'location':'Great George Street, Leeds 1',
+'unveiler':'Mr John Power MBE, Deputy Lord Lieutenant of West Yorkshire',
+'date':'25 Apr 1989',
+'sponser':'Joshua Tetley & Sons Ltd',
+'easting':429750,
+'northing':433920,
+'caption':'Was Built in 1865 to serve people attending the Assize Courts newly held at Leeds Town Hall. Its Stylish accommodation then comprised spacious dining rooms and bars, a billiard room, private sitting rooms and 28 bedrooms.'
+},
+{
+'id':7,
+'title':'The Assembly Rooms',
+'location':'Crown Street, Leeds 2',
+'unveiler':'Mr Bettison (Senior)',
+'date':'27 Apr 1989',
+'sponser':'Mr Bruce Bettison, then Owner of Waterloo Antiques',
+'easting':430456,
+'northing':433362,
+'caption':'Its Handsomely decorated ballroom and card rooms made it one of Yorkshire&rsquo;s finest assembly rooms. Its patrons were the Leeds merchants and the local nobility and gentry. The ground floor formed the Northern range of the third white Cloth Hall. Opened 9th '
+},
+{
+'id':8,
+'title':'Kemplay\'s Academy',
+'location':'Nash\'s Tudor Fish Restaurant, off New Briggate, Leeds 1',
+'unveiler':'Mr. Lawrence Bellhouse, Proprietor, Nash\'s Tudor Fish Restaurant',
+'date':'May 1989',
+'sponser':'Lawrence Bellhouse,  Proprietor, Nash\'s Tudor Fish Restaurant ',
+'easting':430290,
+'northing':433880,
+'caption':'This fine house built in 1720 for Matthew Wilson is shown on John Cossin&rsquo;s plan of Leeds in 1725. In 1817 Richard Kemplay purchased the property to house his &rsquo;Academy for Young Gentlemen.&rsquo;'
+},
+{
+'id':9,
+'title':'Brodrick\'s Buildings',
+'location':'Cookridge Street, Leeds 2',
+'unveiler':'Mr John M. Quinlan, Director, Trinity Services',
+'date':'20 Jul 1989 ',
+'sponser':'Trinity Services (Developers)',
+'easting':429914,
+'northing':434054,
+'caption':'These fine shops and offices were designed by Cuthbert Brodrick (1822-1905) the architect of Leeds Town Hall and the Corn Exchange and the Mechanics&rsquo; Institute. They were renvovated by Trinity Services in 1988. ERECTED 1864'
+},
+{
+'id':10,
+'title':'The West Bar',
+'location':'Bond Street Centre, Boar Lane, Leeds 1',
+'unveiler':'Councillor J.L. Carter, Lord Mayor of Leeds',
+'date':'19 Sept 1989',
+'sponser':'Bond Street Shopping Centre Merchants\' Association',
+'easting':429999,
+'northing':433396,
+'caption':'The bar stone making the western boundary of the built-up area of the medieval town of Leeds stood here. Scarcely a single building lay in the old manorial park to the West of this point before 1758.'
+},
+{
+'id':11,
+'title':'Park Square',
+'location':'45 Park Square, Leeds 1',
+'unveiler':'Mr. Anthony Blackmore, Senior Partner, Simpson Curtis, Solicitors',
+'date':'21 Sept 1989',
+'sponser':'Simpson Curtis Solicitors',
+'easting':429668,
+'northing':433744,
+'caption':'This elegant square formed part of the Wilson family&rsquo;s plan to create a high-class residential estate on the site of the medieval park of the Manor of Leeds. Its residents were merchants, clergy, lawyers and surgeons. Built 1788-1810'
+},
+{
+'id':12,
+'title':'Leeds Manor House',
+'location':'Scarborough Hotel Bishopsgate Street,    Leeds 1 ',
+'unveiler':'Professor Maurice Beresford, , Doyen of Leeds Historians.',
+'date':'26 Sept 1989',
+'sponser':'Joshua Tetley & Sons Ltd',
+'easting':429978,
+'northing':433320,
+'caption':'The Medieval manor house stood here on &rsquo;Castle Hill.&rsquo; Its deep moat looped between the river and Boar Lane. Richard Wilson lavishly rebuilt it in 1765 and in 1821 it became Henry Scarebrough&rsquo;s hotel. The present-day pub is a survivng extension.'
+},
+{
+'id':13,
+'title':'St Paul\'s House',
+'location':'St Paul\'s House, Park Square, Leeds 1',
+'unveiler':'Mr K.E. Reynolds, Branch Manager of the Fire Society',
+'date':'3 Oct 1989',
+'sponser':'Norwich Union Insurance Group',
+'easting':429582,
+'northing':433674,
+'caption':'This building was originally a warehouse and cloth-cutting works built for John Barran, the founder of the mass-production, ready-made clothing industry in Leeds. Barran was a Mayor of Leeds and served as its Liberal M.P. from 1876-1885. Architect: Thomas Ambler. Erected 1878'
+},
+{
+'id':14,
+'title':'Leeds Charity School',
+'location':'Mark Lane, Leeds 2',
+'unveiler':'Professor Neville Rowell, Vice-President, Leeds Civic Trust',
+'date':'30 Oct 1989',
+'sponser':'Professor Neville Rowell, Vice-President, Leeds Civic Trust',
+'easting':430210,
+'northing':433820,
+'caption':'The Chapel of Harrison&rsquo;s almshouses which formerly occupied this site, was converted for use by the charity school in 1726. When the present building was erected in 1815, the institution clothed 80 poor girls and trained them for domestic service. Founded 1705'
+},
+{
+'id':15,
+'title':'Hotel Metropole',
+'location':'King Street, Leeds 1',
+'unveiler':'Lord Strathclyde, Minister for Tourism',
+'date':'10 Nov 1989',
+'sponser':'Crown Hotels',
+'easting':429715,
+'northing':433462,
+'caption':'The fine hotel designed by Chorley, Connon and Chorley is one of the best examples of terracotta work in Leeds. A remarkable feature is the large stone cupold taken from the town&rsquo;s fourth elite Cloth Hall (erected in 1868) which formerly occupied this site. Opened 1899.'
+},
+{
+'id':16,
+'title':'Yorkshire Penny Bank',
+'location':'Yorkshire Bank plc, Infirmary Street, Leeds 1',
+'unveiler':'Mr. David Mortimer, Controller (Marketing), Yorkshire Bank',
+'date':'1 Feb 1990',
+'sponser':'Yorkshire Bank plc',
+'easting':429820,
+'northing':433550,
+'caption':'This famous bank, later known as Yorkshire bank, was founded in Leeds in 1856. These flamboyant premises, designed by G. B. Bulmer, were opened in 1894. the first purpose-built Leeds general Infirmary (1771) formerly stood on this site.'
+},
+{
+'id':17,
+'title':'William Hey&rsquo;s House',
+'location':'Albion Place, Leeds 1',
+'unveiler':'Private unveiling',
+'date':'March 1990',
+'sponser':'Leeds Law Society',
+'easting':430080,
+'northing':433609,
+'caption':'This impressive Georgian townhouse was built for William Hey (1736-1819) one of the founders and later Chief Surgeon of Leeds General Infirmary. For 50 years Hey was in the front rank of British surgeons. Architect: Thomas Johnson, Erected 1794-5.'
+},
+{
+'id':18,
+'title':'Leeds Infirmary',
+'location':'Leeds General Infirmary, Great George Street, Leeds 1',
+'unveiler':'Professor Neville Rowel MD, FRCP, Vice-President, Leeds Civic Trust',
+'date':'12 Mar 1990',
+'sponser':'Medical Faculty of the General Infirmary at Leeds',
+'easting':429750,
+'northing':433970,
+'caption':'This General Infirmary moved here from Infirmary Street in 1869. The building, designed by George Gilbert Scott, incorporated ideas from Florence Nightingale. The plan placed it  the foremost rank of European Hospitals.'
+},
+{
+'id':19,
+'title':'Leeds School of Medicine',
+'location':'Thoresby Place, Leeds 1',
+'unveiler':'Professor M.S. Losowsky, Dean of the Faculty of Medicine and Professor of Medicine, The University of Leeds',
+'date':'3 Apr 1990',
+'sponser':'Faculty of Medicine, University of Leeds',
+'easting':429560,
+'northing':434080,
+'caption':'The institution founded in 1831, was one of the first provincial medical schools in England. The move here from Park Street in 1894 provided the school with its second purpose-built premises. Architect: W.H. Thorp. Erected: 1891-94'
+},
+{
+'id':20,
+'title':'Queens Court',
+'location':'Queens Court, Lower Briggate, Leeds 1',
+'unveiler':'Mr. Brian Prideaux, Property Developer',
+'date':'2 May 1990',
+'sponser':'Brian Prideaux, Property Developer',
+'easting':430276,
+'northing':433294,
+'caption':'The historic courtyard occupies one of the 60 burgage plots which abutted Briggate in the Middle Ages. It is fronted by an eight-bayed woollen cloth merchant&rsquo;s house (built c.1714) and contains the merchant&rsquo;s cloth finishing shop and warehouses.'
+},
+{
+'id':21,
+'title':'Leeds & Liverpool Canal Warehouse',
+'location':'Canal Basin, Water Lane, Leeds 11',
+'unveiler':'Mr. Len Davis,  Leeds Canal Basin (Development) Ltd',
+'date':'3 May 1990',
+'sponser':'Len Davis, Leeds Canal Basin (Development) Ltd',
+'easting':429841,
+'northing':433038,
+'caption':'In 1777 this robust stone building was constructed as a terminal warehouse for the Leeds Liverpool Canal. Started in 1770, the Canal was finally completed in 1816 at a cost of £1,200,00 nearly five times the original estimate.'
+},
+{
+'id':22,
+'title':'Bank of England',
+'location':'South Parade, Leeds 1',
+'unveiler':'Councillor Les Carter, Lord Mayor of Leeds',
+'date':'11 May 1990',
+'sponser':'Bank of England',
+'easting':429927,
+'northing':433752,
+'caption':'The Bank of England opened a branch in Leeds in 1827. These premises, entered from South Parade, were designed by Philip Hardwick and erected 1862-64. The Bank remained on this site until moving to King Street in 1971.'
+}
+];

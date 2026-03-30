@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leeds Blue Plaques</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="jscoord-1.1.1.js?t=20260327"></script>
+  <script src="blue_plaques_data.js?t=20260327"></script>
+  <script src="blue_plaques.js?t=20260327"></script>
+</head>
+
+<body onload="initialize()">
+  <div id="header">
+    <h1>Leeds Blue Plaques</h1>
+    <p>Historical monuments and landmarks across Leeds</p>
+  </div>
+
+  <div id="control-panel">
+    <div id="info-section">
+      <h2>About This Map</h2>
+      <p>The Leeds Blue Plaques scheme commemorates significant buildings, places and people associated with the history of Leeds.
+      The plaques are mounted on buildings to mark historically important sites.</p>
+      <p id="plaque-count">Showing <strong>0</strong> plaques</p>
+    </div>
+
+    <div id="search-section">
+      <h3>Search Plaques</h3>
+      <input type="text" id="search-box" placeholder="Enter plaque name or location...">
+    </div>
+
+    <div id="filter-section">
+      <h3>Filter by Year Range</h3>
+      <input type="text" id="year-filter" placeholder="e.g., 1988 or 1987-1990">
+      <small id="filter-help">Single year or range (1988-1990)</small>
+      <button id="filter-btn">Apply Filter</button>
+      <button id="clear-filter-btn">Clear</button>
+    </div>
+
+    <div id="list-section">
+      <h3>Plaques List</h3>
+      <div id="plaques-list"></div>
+    </div>
+  </div>
+
+  <div id="mapdiv"></div>
+</body>
+
+</html>

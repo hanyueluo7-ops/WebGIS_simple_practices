@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hurricane Tweets Map</title>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+	<!-- Heatmap library -->
+	<script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+	<!-- Clustering library -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+	<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="script.js"></script>
+
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initialize()">
+	<div class="title">
+		<h1>🌀 Hurricane Tweet Location Mapper</h1>
+		<p class="subtitle">Real-time Hurricane-related Tweets Geographic Visualization</p>
+	</div>
+	
+	<!-- Control Panel -->
+	<div class="control-panel">
+		<div class="button-group">
+			<button class="btn-primary" onclick="fetchData()">Fetch Data</button>
+			<button class="btn-secondary" onclick="clearData()">Clear Data</button>
+		</div>
+	</div>
+	
+	<!-- Map Container with Visualization Selector -->
+	<div class="map-container">
+		<div id="mapdiv"></div>
+		
+		<!-- Visualization Type Selector (Inside Map) -->
+		<div class="viz-selector">
+			<label for="vizType">Visualization:</label>
+			<select id="vizType" onchange="switchVisualization()">
+				<option value="markers">Markers</option>
+				<option value="heatmap">Heatmap</option>
+				<option value="cluster">Clustering</option>
+			</select>
+		</div>
+	</div>
+	
+	<!-- Statistics Panel -->
+	<div class="stats-panel">
+		<div class="stat-item">
+			<span class="stat-label">Total Tweets:</span>
+			<span class="stat-value" id="totalTweets">0</span>
+		</div>
+		<div class="stat-item">
+			<span class="stat-label">Areas Covered:</span>
+			<span class="stat-value" id="areaCount">0</span>
+		</div>
+		<div class="stat-item">
+			<span class="stat-label">Hotspot Areas:</span>
+			<span class="stat-value" id="hotspotCount">0</span>
+		</div>
+	</div>
+
+	<!-- Hotspot List -->
+	<div class="hotspot-section">
+		<h3>📍 Top 5 Hotspots</h3>
+		<div id="hotspotList" class="hotspot-list">
+			<p class="placeholder">No Data Available</p>
+		</div>
+	</div>
+</body>
+</html>
